@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Base : MonoBehaviour
 {
@@ -7,6 +8,9 @@ public class Base : MonoBehaviour
 
     [SerializeField]
     public int hp = 500;
+
+    public ParticleSystem VFX;
+    public Canvas GameOverScreen;
 
     private DamageNumbers damageNumbers;
 
@@ -36,7 +40,14 @@ public class Base : MonoBehaviour
     public void BaseDeath()
     {
         // todo
-        Destroy(gameObject);
-        Destroy(Instance);
+        VFX.gameObject.SetActive(true);
+        GameOverScreen.gameObject.SetActive(true);
+        //Destroy(gameObject);
+        //Destroy(Instance);
+    }
+
+    public void Looser()
+    {
+        SceneManager.LoadScene(0);
     }
 }
