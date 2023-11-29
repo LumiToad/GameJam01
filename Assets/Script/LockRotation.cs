@@ -16,6 +16,11 @@ public class LockRotation : MonoBehaviour
     private void LateUpdate()
     {
         transform.rotation = rotation;
-        transform.position = position;
+        var player = FindObjectOfType<Player>();
+        Vector3 pos = transform.position;
+        pos.y = position.y;
+        pos.x = player.transform.position.x;
+        pos.z = player.transform.position.z;
+        transform.position = pos;
     }
 }

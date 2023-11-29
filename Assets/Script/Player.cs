@@ -63,4 +63,6 @@ public class Player : MonoBehaviour
             bullet.Fire(transform.forward);
         }
     }
+
+
 }
