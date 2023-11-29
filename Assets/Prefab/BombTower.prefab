@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 404622908707408088}
   - component: {fileID: 2266768242044770664}
   - component: {fileID: 6788951243501835188}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: UpgradeRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}

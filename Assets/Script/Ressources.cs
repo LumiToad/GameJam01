@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class Ressources
 {
-    public static int value;
+    public static int value = 10;
 }

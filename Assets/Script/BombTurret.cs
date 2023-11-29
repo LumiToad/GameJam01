@@ -5,6 +5,7 @@ using UnityEngine;
 public class BombTurret : Bullet
 {
     public List<Enemy> enemies = new List<Enemy>();
+    public ParticleSystem explosion;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,9 +18,12 @@ public class BombTurret : Bullet
         foreach(var enemy in enemies)
         {
             if (enemy == null) continue;
-
-            enemy.TakeDamage(1);
+            enemy.TakeDamage(3);
         }
+
+        var boom = Instantiate(explosion);
+        boom.transform.position = transform.position;
+        Destroy(boom, 2);
 
         Destroy(this.gameObject);
     }
@@ -29,6 +33,7 @@ public class BombTurret : Bullet
         if (other.gameObject.GetComponent<Enemy>() != null)
         {
             enemies.Remove(other.gameObject.GetComponent<Enemy>());
+
             return;
         }
     }
