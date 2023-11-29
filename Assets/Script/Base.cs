@@ -8,19 +8,21 @@ public class Base : MonoBehaviour
     [SerializeField]
     public int hp = 500;
 
+    private DamageNumbers damageNumbers;
+
     private void Awake()
     {
         Instance = this;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        damageNumbers = GetComponentInChildren<DamageNumbers>();
     }
 
     public void TakeDamage(int damage)
     {
+        if (damageNumbers != null)
+        {
+            damageNumbers.PrintDamageNumber(damage, Color.white);
+        }
+
         hp -= damage;
 
         if (hp <= 0)
@@ -29,7 +31,6 @@ public class Base : MonoBehaviour
         }
 
         Debug.Log($"Base Damaged: {damage}, current HP: {hp}");
-
     }
 
     public void BaseDeath()
