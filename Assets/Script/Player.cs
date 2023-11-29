@@ -61,7 +61,7 @@ public class Player : MonoBehaviour
     public void LevelUp()
     {
         levelProgress.fillAmount = Ressources.XP / (float)levelUPXP;
-        PlayerLevel.text = $"Playerlevel: {level}";
+        PlayerLevel.text = $"Playerlevel: {level + 1}";
 
         if(Ressources.XP >= levelUPXP)
         {
