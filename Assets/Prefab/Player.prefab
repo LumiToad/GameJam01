@@ -894,6 +894,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 6208235425246209911}
   projectile: {fileID: 779614403800531070, guid: c9275920497e35248bc0136659c1426b,
     type: 3}
+  tower: {fileID: 7926736188713589371, guid: d15a4a28055f16241be8bcc4b50cc972, type: 3}
 --- !u!54 &3360868455079949578
 Rigidbody:
   m_ObjectHideFlags: 0
