@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class Base : MonoBehaviour
 {
-    public static Base Instance { get; private set; }
+    public static Base Instance 
+    { get; private set; }
 
     [SerializeField]
     public int hp = 500;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        Instance = this;
     }
 
     // Update is called once per frame
@@ -27,6 +27,9 @@ public class Base : MonoBehaviour
         {
             BaseDeath();
         }
+
+        Debug.Log($"Base Damaged: {damage}, current HP: {hp}");
+
     }
 
     public void BaseDeath()

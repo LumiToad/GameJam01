@@ -13,8 +13,7 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
     private PlayableDirector playableDirector;
 
-    private Base playerBase;
-
+    [HideInInspector]
     public bool isBaseInRange = false;
 
     private void OnTriggerEnter(Collider other)
@@ -39,7 +38,6 @@ public class Enemy : MonoBehaviour
         {
             EnemyDeath();
         }
-
     }
 
     public void AITick()
@@ -60,12 +58,13 @@ public class Enemy : MonoBehaviour
 
     public void WalkTowardsTarget()
     {
-        agent.SetDestination(playerBase.transform.position);
+        Debug.Log("Test");
+        agent.SetDestination(Base.Instance.transform.position);
     }
 
     public void AttackTarget()
     {
-        playerBase.TakeDamage(damage);
+        Base.Instance.TakeDamage(damage);
     }
 
 }
