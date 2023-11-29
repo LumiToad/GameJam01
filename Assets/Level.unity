@@ -444,26 +444,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3808949356589481995, guid: 9738eb13b2d13e44f9de7f12020eabcc,
-        type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1905831938}
-    - target: {fileID: 3808949356589481995, guid: 9738eb13b2d13e44f9de7f12020eabcc,
-        type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SpawnEnemy
-      objectReference: {fileID: 0}
-    - target: {fileID: 3808949356589481995, guid: 9738eb13b2d13e44f9de7f12020eabcc,
-        type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: EnemySpawner, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 3808949356589481995, guid: 9738eb13b2d13e44f9de7f12020eabcc,
-        type: 3}
-      propertyPath: m_Events.m_Events.Array.data[1].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4487,18 +4467,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9b5e64f349e8bd4429ef7b9542e4956f, type: 3}
---- !u!114 &1905831938 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8421048013793562866, guid: 9738eb13b2d13e44f9de7f12020eabcc,
-    type: 3}
-  m_PrefabInstance: {fileID: 85997324}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18547223a98f41a45ac945077ca06ff8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1905831941 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3792499574868673305, guid: 9738eb13b2d13e44f9de7f12020eabcc,
@@ -5109,6 +5077,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147297544398259872, guid: 6d47f42faf99d7441ab4648225ebf658,
+        type: 3}
+      propertyPath: turretCost
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8992324662974782251, guid: 6d47f42faf99d7441ab4648225ebf658,
         type: 3}
