@@ -29,6 +29,8 @@ public class Player : MonoBehaviour
 
     private int level = 0;
 
+    private AudioSource levelUpSFX;
+
     public List<GameObject> Unlocks = new List<GameObject>();
     public Image levelProgress;
     public TextMeshProUGUI PlayerLevel;
@@ -36,7 +38,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-
+        levelUpSFX = GetComponent<AudioSource>();
         tower = normalTower;
     }
 
@@ -73,6 +75,8 @@ public class Player : MonoBehaviour
             }
 
             level++;
+
+            levelUpSFX.Play();
         }
     }
 

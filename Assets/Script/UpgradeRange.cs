@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UpgradeRange : MonoBehaviour
@@ -10,6 +8,13 @@ public class UpgradeRange : MonoBehaviour
     public float bonusSpeed = 0.1f;
 
     public ParticleSystem levelUpVFX;
+
+    private AudioSource levelUpSFX;
+
+    private void Awake()
+    {
+        levelUpSFX = GetComponent<AudioSource>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -28,6 +33,7 @@ public class UpgradeRange : MonoBehaviour
             turret.fireCooldown_ = Mathf.Clamp(turret.fireCooldown_ - bonusSpeed, 0.1f, 10000);
             levelUpVFX.gameObject.SetActive(true);
             levelUpVFX.Play();
+            levelUpSFX.Play();
         }
     }
 
