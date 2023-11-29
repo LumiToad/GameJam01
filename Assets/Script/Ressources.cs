@@ -5,4 +5,5 @@ using UnityEngine;
 public class Ressources
 {
     public static int value = 10;
+    public static int enemyKills = 0;
 }
