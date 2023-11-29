@@ -149,6 +149,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 5
   damage: 1
+  coin: {fileID: 8862104905162842760, guid: 88472ef88034eb742bb912d14201e3b5, type: 3}
   isBaseInRange: 0
 --- !u!320 &2118812835902290446
 PlayableDirector:

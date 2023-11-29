@@ -14,6 +14,8 @@ public class Enemy : MonoBehaviour
     private PlayableDirector playableDirector;
     private DamageNumbers damageNumbers;
 
+    public Coin coin;
+
     [HideInInspector]
     public bool isBaseInRange = false;
 
@@ -44,6 +46,8 @@ public class Enemy : MonoBehaviour
 
         if (hp <= 0)
         {
+            var coins = Instantiate(coin);
+            coins.transform.position = transform.position;
             EnemyDeath();
         }
 
