@@ -5,7 +5,7 @@ using UnityEngine.Playables;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    public int hp = 100;
+    public int hp = 5;
 
     [SerializeField]
     private int damage = 1;
@@ -38,6 +38,9 @@ public class Enemy : MonoBehaviour
         {
             EnemyDeath();
         }
+
+        Debug.Log($"Enemy Damaged: {damage}, current HP: {hp}");
+
     }
 
     public void AITick()
