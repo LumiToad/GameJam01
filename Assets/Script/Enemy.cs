@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
 
     private NavMeshAgent agent;
     private PlayableDirector playableDirector;
+    private DamageNumbers damageNumbers;
 
     [HideInInspector]
     public bool isBaseInRange = false;
@@ -29,10 +30,16 @@ public class Enemy : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         playableDirector = GetComponent<PlayableDirector>();
+        damageNumbers = GetComponentInChildren<DamageNumbers>();
     }
 
     public void TakeDamage(int damage)
     {
+        if ( damageNumbers != null)
+        {
+            damageNumbers.PrintDamageNumber(damage ,Color.red);
+        }
+
         hp -= damage;
 
         if (hp <= 0)

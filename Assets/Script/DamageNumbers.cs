@@ -1,18 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class DamageNumbers : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private GameObject textMeshPrefab;
 
-    // Update is called once per frame
-    void Update()
+    public void PrintDamageNumber(int damage, Color color)
     {
-        
+        var spawnedText = Instantiate(textMeshPrefab);
+        spawnedText.transform.position = transform.position;
+
+        var number = spawnedText.GetComponent<NumberMovement>();
+
+        number.SetNumber(damage, color);
     }
 }
