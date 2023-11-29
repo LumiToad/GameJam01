@@ -6,11 +6,14 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
     Vector3 direction;
-    public void Fire(Vector3 direction, float bonusSpeed = 0)
+    public void Fire(Vector3 direction, bool lockY = false, float bonusSpeed = 0)
     {
         speed += bonusSpeed;
         direction = direction.normalized;
-        direction.y = 0;
+        if (lockY)
+        {
+            direction.y = 0;
+        }
         this.direction = direction;
         Destroy(this.gameObject, 10);
     }
@@ -25,6 +28,7 @@ public class Bullet : MonoBehaviour
         if (other.GetComponent<Enemy>() != null ) 
         {
             other.GetComponent<Enemy>().TakeDamage(1);
+            Destroy(this.gameObject);
         }
     }
 }

@@ -225,6 +225,7 @@ MonoBehaviour:
   projectile: {fileID: 779614403800531070, guid: c9275920497e35248bc0136659c1426b,
     type: 3}
   fireCooldown_: 1
+  lockY: 1
 --- !u!135 &8647841917132643015
 SphereCollider:
   m_ObjectHideFlags: 0

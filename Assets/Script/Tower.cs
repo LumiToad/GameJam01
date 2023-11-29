@@ -12,6 +12,8 @@ public class Tower : MonoBehaviour
     public float fireCooldown_;
     private float fireCooldown = 1;
 
+    public bool lockY = true;
+
     private void Update()
     {
         while (enemies.Contains(null))
@@ -35,7 +37,7 @@ public class Tower : MonoBehaviour
 
         var bullet = Instantiate(projectile);
         bullet.transform.position = bulletSpawnPoint.position;
-        bullet.Fire(closest.transform.position - transform.position, 10);
+        bullet.Fire(closest.transform.position - transform.position, lockY, 20);
     }
 
     Enemy ClosestEnemy()

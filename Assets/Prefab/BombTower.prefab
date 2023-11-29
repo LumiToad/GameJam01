@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 404622908707408088}
   - component: {fileID: 2266768242044770664}
   - component: {fileID: 6788951243501835188}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: UpgradeRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,9 +222,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletSpawnPoint: {fileID: 4467602910884673274}
-  projectile: {fileID: 779614403800531070, guid: c9275920497e35248bc0136659c1426b,
+  projectile: {fileID: 2645772925262440618, guid: 68810f9d8c6772a45ae0033a3e84d1f3,
     type: 3}
   fireCooldown_: 1
+  lockY: 0
 --- !u!135 &8647841917132643015
 SphereCollider:
   m_ObjectHideFlags: 0
