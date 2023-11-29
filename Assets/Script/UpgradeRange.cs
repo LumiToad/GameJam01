@@ -8,6 +8,7 @@ public class UpgradeRange : MonoBehaviour
     public Tower turret;
 
     public float bonusSpeed = 0.1f;
+    public int levelUpCost = 1;
 
     public ParticleSystem levelUpVFX;
 
@@ -21,9 +22,9 @@ public class UpgradeRange : MonoBehaviour
 
     private void Update()
     {
-        if(player != null && Input.GetKeyDown(KeyCode.E) && Ressources.value >= 10)
+        if(player != null && Input.GetKeyDown(KeyCode.E) && Ressources.value >= levelUpCost)
         {
-            Ressources.value -= 10;
+            Ressources.value -= levelUpCost;
             Debug.LogWarning("Turret got Upgraded");
             turret.fireCooldown_ = Mathf.Clamp(turret.fireCooldown_ - bonusSpeed, 0.1f, 10000);
             levelUpVFX.gameObject.SetActive(true);
