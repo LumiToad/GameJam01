@@ -48,6 +48,7 @@ public class Enemy : MonoBehaviour
         {
             var coins = Instantiate(coin);
             coins.transform.position = transform.position;
+            Ressources.enemyKills += 1;
             EnemyDeath();
         }
 
