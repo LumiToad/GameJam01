@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6772961282909929575}
   - component: {fileID: 6369062527026980067}
   - component: {fileID: 955459833089360208}
+  - component: {fileID: 1854292175291530718}
   m_Layer: 0
   m_Name: Damge Zone (3)
   m_TagString: Untagged
@@ -105,6 +106,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1854292175291530718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2467731527794620225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f91b057c2eae234e9aee3d0c46dea9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &3485648262982063065
 GameObject:
   m_ObjectHideFlags: 0
@@ -117,6 +131,7 @@ GameObject:
   - component: {fileID: 6200049532375179056}
   - component: {fileID: 8277956839270950836}
   - component: {fileID: 596223132232634080}
+  - component: {fileID: 7904450486975992051}
   m_Layer: 0
   m_Name: Damge Zone
   m_TagString: Untagged
@@ -210,6 +225,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7904450486975992051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3485648262982063065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f91b057c2eae234e9aee3d0c46dea9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &5675773712677907472
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,6 +333,7 @@ GameObject:
   - component: {fileID: 2506321134234873194}
   - component: {fileID: 1498147534908558643}
   - component: {fileID: 3791851112520602491}
+  - component: {fileID: 8519951484757369842}
   m_Layer: 0
   m_Name: Damge Zone (1)
   m_TagString: Untagged
@@ -398,6 +427,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8519951484757369842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6353938459643693803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f91b057c2eae234e9aee3d0c46dea9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &7544481821372255026
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,6 +509,7 @@ GameObject:
   - component: {fileID: 5102137190217096358}
   - component: {fileID: 2164214383142607794}
   - component: {fileID: 6921931691145777849}
+  - component: {fileID: 7257167873251180118}
   m_Layer: 0
   m_Name: Damge Zone (2)
   m_TagString: Untagged
@@ -560,6 +603,19 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7257167873251180118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7859195414306997138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f91b057c2eae234e9aee3d0c46dea9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &8669761118755553254
 GameObject:
   m_ObjectHideFlags: 0
