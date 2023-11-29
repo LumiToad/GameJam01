@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
         {
             var bullet = Instantiate(projectile);
             bullet.transform.position = bulletSpawnPoint.position;
-            bullet.Fire(transform.forward);
+            bullet.Fire(transform.forward, true);
         }
     }
 

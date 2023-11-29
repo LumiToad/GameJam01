@@ -45,6 +45,8 @@ public class Tower : MonoBehaviour
         Enemy closest = null;
         foreach(Enemy enemy in enemies)
         {
+            if(enemy == null) continue;
+
             if (closest == null)
             {
                 closest = enemy; 
