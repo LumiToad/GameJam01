@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
 
     public LayerMask mask;
 
-    public float turretCost = 5;
+    public int turretCost = 5;
 
     public int levelUPXP = 100;
 
@@ -67,9 +67,9 @@ public class Player : MonoBehaviour
         {
             Ressources.XP = 0;
 
-            if (Unlocks.Count >= level)
+            if (Unlocks.Count > level)
             {
-                Unlocks[0].gameObject.SetActive(true);
+                Unlocks[level].gameObject.SetActive(true);
             }
 
             level++;
@@ -112,9 +112,9 @@ public class Player : MonoBehaviour
 
     void SpawnTurret()
     {
-        if (Input.GetMouseButtonDown(1) && Ressources.value > turretCost)
+        if (Input.GetMouseButtonDown(1) && Ressources.value >= turretCost)
         {
-            Ressources.value -= 20;
+            Ressources.value -= turretCost;
 
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
