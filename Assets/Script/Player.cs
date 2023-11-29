@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +25,14 @@ public class Player : MonoBehaviour
 
     public float turretCost = 5;
 
+    public int levelUPXP = 100;
+
+    private int level = 0;
+
+    public List<GameObject> Unlocks = new List<GameObject>();
+    public Image levelProgress;
+    public TextMeshProUGUI PlayerLevel;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -40,10 +51,29 @@ public class Player : MonoBehaviour
             transform.LookAt(hit.point);
         }
 
+        LevelUp();
         Move();
         Attack();
         SpawnTurret();
         SelectTurret();
+    }
+
+    public void LevelUp()
+    {
+        levelProgress.fillAmount = Ressources.XP / (float)levelUPXP;
+        PlayerLevel.text = $"Playerlevel: {level}";
+
+        if(Ressources.XP >= levelUPXP)
+        {
+            Ressources.XP = 0;
+
+            if (Unlocks.Count >= level)
+            {
+                Unlocks[0].gameObject.SetActive(true);
+            }
+
+            level++;
+        }
     }
 
     private void Move()

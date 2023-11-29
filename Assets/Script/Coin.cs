@@ -11,6 +11,7 @@ public class Coin : MonoBehaviour
         if(other.gameObject.GetComponent<Player>() != null)
         {
             Ressources.value += 1;
+            Ressources.XP += 1;
 
             var pl = Instantiate(pling);
             pl.transform.position = transform.position;
