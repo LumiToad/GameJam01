@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class DamageZone : MonoBehaviour
 {
+    public int damage = 10;
     private void OnTriggerEnter(Collider other)
     {
         if(other.GetComponent<Enemy>() != null)
         {
-            other.GetComponent<Enemy>().TakeDamage(1);
+            other.GetComponent<Enemy>().TakeDamage(damage);
         }
     }
 }

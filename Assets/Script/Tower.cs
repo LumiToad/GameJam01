@@ -49,7 +49,7 @@ public class Tower : MonoBehaviour
                 continue;
             }
             
-            if(Vector3.Distance(enemy.transform.position, transform.position) < Vector3.Distance(closest.transform.position, transform.position))
+            if(closest != null && Vector3.Distance(enemy.transform.position, transform.position) < Vector3.Distance(closest.transform.position, transform.position))
             {
                 closest = enemy;
             }
