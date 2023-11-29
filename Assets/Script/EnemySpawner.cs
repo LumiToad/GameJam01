@@ -6,12 +6,30 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     GameObject EnemyPrefab;
 
-    private PlayableDirector playableDirector;
+    [SerializeField]
+    private float startCooldown = 3.0f;
+
+    private float cooldown;
+
+    private float time;
 
     private void Awake()
     {
-        playableDirector = GetComponent<PlayableDirector>();
-        SetupPlayableDirector();
+        RandomizeTimer();
+        cooldown = startCooldown;
+    }
+
+    private void Update()
+    {
+        time += Time.deltaTime;
+
+        cooldown = startCooldown - (Ressources.Difficulty * 0.1f);
+
+        if (time >= cooldown)
+        {
+            time = 0;
+            SpawnEnemy();
+        }
     }
 
     public void SpawnEnemy()
@@ -21,11 +39,10 @@ public class EnemySpawner : MonoBehaviour
         spawnedEnemy.transform.position = transform.position;
     }
 
-    private void SetupPlayableDirector()
+    private void RandomizeTimer()
     {
-        double randomTime = Random.Range(0.0f, (float)playableDirector.duration);
+        float randomTime = Random.Range(0.0f, cooldown);
 
-        playableDirector.initialTime = randomTime;
-        playableDirector.Play();
+        time = randomTime;
     }
 }
