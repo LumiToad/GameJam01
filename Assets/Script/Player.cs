@@ -35,6 +35,8 @@ public class Player : MonoBehaviour
     public Image levelProgress;
     public TextMeshProUGUI PlayerLevel;
 
+    public ParticleSystem levelUpVFX;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -78,6 +80,7 @@ public class Player : MonoBehaviour
             level++;
 
             levelUpSFX.Play();
+            levelUpVFX.Play();
         }
     }
 
@@ -122,9 +125,11 @@ public class Player : MonoBehaviour
             Ressources.value -= turretCost;
 
             RaycastHit hit;
+
             // Does the ray intersect any objects excluding the player layer
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, mask))
             {
+                if (hit.collider.gameObject.CompareTag("NoTurretArea")) return;
                 var turret = Instantiate(tower);
                 var position = hit.point;
                 position.y = transform.position.y;
