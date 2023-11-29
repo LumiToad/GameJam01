@@ -6,21 +6,27 @@ public class Base : MonoBehaviour
     { get; private set; }
 
     [SerializeField]
-    public int hp = 500;
+    public int maxHP = 500;
+    
+    public int hp;
 
     private DamageNumbers damageNumbers;
+    private HPBar hpBar;
 
     private void Awake()
     {
         Instance = this;
         damageNumbers = GetComponentInChildren<DamageNumbers>();
+        hpBar = GetComponentInChildren<HPBar>();
+        hp = maxHP;
+        hpBar.SetHealthBar(maxHP, hp);
     }
 
     public void TakeDamage(int damage)
     {
         if (damageNumbers != null)
         {
-            damageNumbers.PrintDamageNumber(damage, Color.white);
+            damageNumbers.PrintDamageNumber(damage, Color.red);
         }
 
         hp -= damage;
@@ -31,6 +37,7 @@ public class Base : MonoBehaviour
         }
 
         Debug.Log($"Base Damaged: {damage}, current HP: {hp}");
+        hpBar.SetHealthBar(maxHP, hp);
     }
 
     public void BaseDeath()

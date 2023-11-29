@@ -5,7 +5,9 @@ using UnityEngine.Playables;
 public class Enemy : MonoBehaviour
 {
     [SerializeField]
-    public int hp = 5;
+    public int maxHP = 5;
+
+    public int hp;
 
     [SerializeField]
     private int damage = 1;
@@ -13,8 +15,11 @@ public class Enemy : MonoBehaviour
     private NavMeshAgent agent;
     private PlayableDirector playableDirector;
     private DamageNumbers damageNumbers;
+    private HPBar hpBar;
 
     public Coin coin;
+
+    public GameObject deathVfxPrefab;
 
     [HideInInspector]
     public bool isBaseInRange = false;
@@ -33,13 +38,16 @@ public class Enemy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         playableDirector = GetComponent<PlayableDirector>();
         damageNumbers = GetComponentInChildren<DamageNumbers>();
+        hpBar = GetComponentInChildren<HPBar>();
+        hp = maxHP;
+        hpBar.SetHealthBar(maxHP, hp);
     }
 
     public void TakeDamage(int damage)
     {
         if ( damageNumbers != null)
         {
-            damageNumbers.PrintDamageNumber(damage ,Color.red);
+            damageNumbers.PrintDamageNumber(damage ,Color.white);
         }
 
         hp -= damage;
@@ -53,6 +61,7 @@ public class Enemy : MonoBehaviour
         }
 
         Debug.Log($"Enemy Damaged: {damage}, current HP: {hp}");
+        hpBar.SetHealthBar(maxHP, hp);
 
     }
 
@@ -69,6 +78,8 @@ public class Enemy : MonoBehaviour
 
     public void EnemyDeath()
     {
+        var deathVfx = Instantiate(deathVfxPrefab);
+        deathVfx.transform.position = transform.position;
         Destroy(gameObject);
     }
 
@@ -80,7 +91,7 @@ public class Enemy : MonoBehaviour
     public void AttackTarget()
     {
         Base.Instance.TakeDamage(damage);
-        Destroy(gameObject);
+        EnemyDeath();
     }
 
 }
