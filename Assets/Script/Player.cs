@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
         {
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, ~LayerMask.GetMask("default")))
             {
                 var turret = Instantiate(tower);
                 var position = hit.point;

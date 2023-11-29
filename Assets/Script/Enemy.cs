@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.gameObject);
         if (other.GetComponent<Base>() != null)
         {
             isBaseInRange = true;
@@ -61,13 +62,13 @@ public class Enemy : MonoBehaviour
 
     public void WalkTowardsTarget()
     {
-        Debug.Log("Test");
         agent.SetDestination(Base.Instance.transform.position);
     }
 
     public void AttackTarget()
     {
         Base.Instance.TakeDamage(damage);
+        Destroy(gameObject);
     }
 
 }
