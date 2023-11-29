@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     public Transform bulletSpawnPoint;
     public Bullet projectile;
+    public Tower tower;
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
 
         Move();
         Attack();
+        SpawnTurret();
     }
 
     private void Move()
@@ -64,5 +66,20 @@ public class Player : MonoBehaviour
         }
     }
 
+    void SpawnTurret()
+    {
+        if (Input.GetMouseButtonDown(1))
+        {
+            RaycastHit hit;
+            // Does the ray intersect any objects excluding the player layer
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
+            {
+                var turret = Instantiate(tower);
+                var position = hit.point;
+                position.y = transform.position.y;
+                turret.transform.position = position;
+            }
+        }
+    }
 
 }
