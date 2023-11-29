@@ -17,7 +17,7 @@ public class UpgradeRange : MonoBehaviour
 
     private void Update()
     {
-        if(player != null && Input.GetKeyDown(KeyCode.E) && Ressources.value > 10)
+        if(player != null && Input.GetKeyDown(KeyCode.E) && Ressources.value >= 10)
         {
             Ressources.value -= 10;
             Debug.LogWarning("Turret got Upgraded");

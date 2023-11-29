@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -9,13 +10,21 @@ public class Player : MonoBehaviour
 
     public Transform bulletSpawnPoint;
     public Bullet projectile;
-    public Tower tower;
+    private Tower tower;
+
+    public Tower normalTower;
+    public Tower bombTower;
+
+    public Image normalTowerHighlight;
+    public Image bombTowerHighlight;
 
     public LayerMask mask;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+
+        tower = normalTower;
     }
 
     private void Update()
@@ -32,6 +41,7 @@ public class Player : MonoBehaviour
         Move();
         Attack();
         SpawnTurret();
+        SelectTurret();
     }
 
     private void Move()
@@ -84,4 +94,24 @@ public class Player : MonoBehaviour
         }
     }
 
+    void SelectTurret()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            normalTowerHighlight.gameObject.SetActive(false);
+            bombTowerHighlight.gameObject.SetActive(false);
+
+            tower = normalTower;
+            normalTowerHighlight.gameObject.SetActive(true);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            normalTowerHighlight.gameObject.SetActive(false);
+            bombTowerHighlight.gameObject.SetActive(false);
+
+            tower = bombTower;
+            bombTowerHighlight.gameObject.SetActive(true);
+        }
+    }
 }
