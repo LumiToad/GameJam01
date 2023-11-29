@@ -39,8 +39,16 @@ public class Enemy : MonoBehaviour
         playableDirector = GetComponent<PlayableDirector>();
         damageNumbers = GetComponentInChildren<DamageNumbers>();
         hpBar = GetComponentInChildren<HPBar>();
+
+        if(Ressources.Difficulty > 1)
+        {
+            maxHP += (Ressources.Difficulty / 2) * 10;
+        }
+
         hp = maxHP;
         hpBar.SetHealthBar(maxHP, hp);
+
+        
     }
 
     public void TakeDamage(int damage)

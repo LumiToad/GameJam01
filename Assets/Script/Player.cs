@@ -72,6 +72,7 @@ public class Player : MonoBehaviour
             if (Unlocks.Count > level)
             {
                 Unlocks[level].gameObject.SetActive(true);
+                Ressources.Difficulty += 1;
             }
 
             level++;
