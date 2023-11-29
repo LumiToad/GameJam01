@@ -50,7 +50,7 @@ public class Player : MonoBehaviour
         {
             var position = hit.point;
             position.y = transform.position.y;
-            transform.LookAt(hit.point);
+            transform.LookAt(position);
         }
 
         LevelUp();
