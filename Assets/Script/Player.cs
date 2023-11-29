@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
 
     public LayerMask mask;
 
+    public float turretCost = 5;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
@@ -80,8 +82,10 @@ public class Player : MonoBehaviour
 
     void SpawnTurret()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) && Ressources.value > turretCost)
         {
+            Ressources.value -= 20;
+
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
             if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, mask))

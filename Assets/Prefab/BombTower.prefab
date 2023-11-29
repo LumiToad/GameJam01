@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 7926736188713589371}
   - component: {fileID: 8647841917132643015}
   - component: {fileID: 1415995984713046976}
+  - component: {fileID: 2415801508284576715}
   m_Layer: 9
   m_Name: BombTower
   m_TagString: Untagged
@@ -274,3 +275,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!208 &2415801508284576715
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6301858175314369321}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
