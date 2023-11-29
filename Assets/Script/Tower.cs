@@ -35,7 +35,7 @@ public class Tower : MonoBehaviour
 
         var bullet = Instantiate(projectile);
         bullet.transform.position = bulletSpawnPoint.position;
-        bullet.Fire(closest.transform.position - transform.position);
+        bullet.Fire(closest.transform.position - transform.position, 10);
     }
 
     Enemy ClosestEnemy()

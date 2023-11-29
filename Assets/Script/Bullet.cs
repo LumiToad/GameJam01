@@ -6,8 +6,10 @@ public class Bullet : MonoBehaviour
 {
     public float speed;
     Vector3 direction;
-    public void Fire(Vector3 direction)
+    public void Fire(Vector3 direction, float bonusSpeed = 0)
     {
+        speed += bonusSpeed;
+        direction = direction.normalized;
         direction.y = 0;
         this.direction = direction;
         Destroy(this.gameObject, 10);
