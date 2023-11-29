@@ -1,5 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,7 +23,15 @@ public class Player : MonoBehaviour
 
     public LayerMask mask;
 
-    public float turretCost = 5;
+    public int turretCost = 5;
+
+    public int levelUPXP = 100;
+
+    private int level = 0;
+
+    public List<GameObject> Unlocks = new List<GameObject>();
+    public Image levelProgress;
+    public TextMeshProUGUI PlayerLevel;
 
     private void Awake()
     {
@@ -40,10 +51,29 @@ public class Player : MonoBehaviour
             transform.LookAt(hit.point);
         }
 
+        LevelUp();
         Move();
         Attack();
         SpawnTurret();
         SelectTurret();
+    }
+
+    public void LevelUp()
+    {
+        levelProgress.fillAmount = Ressources.XP / (float)levelUPXP;
+        PlayerLevel.text = $"Playerlevel: {level}";
+
+        if(Ressources.XP >= levelUPXP)
+        {
+            Ressources.XP = 0;
+
+            if (Unlocks.Count > level)
+            {
+                Unlocks[level].gameObject.SetActive(true);
+            }
+
+            level++;
+        }
     }
 
     private void Move()
@@ -82,9 +112,9 @@ public class Player : MonoBehaviour
 
     void SpawnTurret()
     {
-        if (Input.GetMouseButtonDown(1) && Ressources.value > turretCost)
+        if (Input.GetMouseButtonDown(1) && Ressources.value >= turretCost)
         {
-            Ressources.value -= 20;
+            Ressources.value -= turretCost;
 
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer

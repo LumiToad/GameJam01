@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Base : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class Base : MonoBehaviour
     public int maxHP = 500;
     
     public int hp;
+
+    public ParticleSystem VFX;
+    public Canvas GameOverScreen;
 
     private DamageNumbers damageNumbers;
     private HPBar hpBar;
@@ -43,7 +47,14 @@ public class Base : MonoBehaviour
     public void BaseDeath()
     {
         // todo
-        Destroy(gameObject);
-        Destroy(Instance);
+        VFX.gameObject.SetActive(true);
+        GameOverScreen.gameObject.SetActive(true);
+        //Destroy(gameObject);
+        //Destroy(Instance);
+    }
+
+    public void Looser()
+    {
+        SceneManager.LoadScene(0);
     }
 }
